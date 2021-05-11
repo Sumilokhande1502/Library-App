@@ -1,9 +1,11 @@
-export default {
-  port: 5000,
-  host: "localhost",
-  accessTokenTtl: "15m",
-  refreshTokenTtl: "1y",
-  privateKey: `-----BEGIN RSA PRIVATE KEY-----
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    port: 5000,
+    host: "localhost",
+    accessTokenTtl: "15m",
+    refreshTokenTtl: "1y",
+    privateKey: `-----BEGIN RSA PRIVATE KEY-----
   MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX
   01ajpafM7c7f5PO+wAcGYIxiTQsv9ml2/cgnB6MWG/YYKDCfbWLNbpvQxYlUCu0f
   bRHc4dYM3AysBpx/SE9JNAlUoRsuQ05PP3U0IsM9FzYUpyZ9TDR7bjPYyQIDAQAB
@@ -18,5 +20,4 @@ export default {
   +0fk592vlHggCWYQ6QJANZzno1FwUOjtGLeKm83ZGdbo3K+00i25FmBgB2d0uAtk
   noxFVOjsY+eSXHZqNybrhWRAzutSnpz/QEf/7Vg97g==
   -----END CERTIFICATE-----`,
-  secret: 'supersecret',
 };
