@@ -1,6 +1,4 @@
 import {Request, Response, NextFunction} from 'express';
-import { title } from 'process';
-import book from '../models/book';
 import Book from '../models/book';
 
 async function hello(req:Request, res:Response, next:NextFunction){
