@@ -11,4 +11,3 @@ export async function createUserHandler(req: Request, res:Response){
         return res.status(409).send(e.message);
     }
 }
-

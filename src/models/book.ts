@@ -16,15 +16,18 @@ const BookSchema = new mongoose.Schema(
     description: { type: String },
     category: { type: String },
     edition: { type: Number },
+    name : { type: String },
+    password : { type: String },
+    email : { type: String },
   },
   { timestamps: true }
 );
 
-BookSchema.method("toJSON", function () {
-  const { __v, _id, ...object } = this.toObject();
-  object.id = _id;
-  return object;
-});
+// BookSchema.method("toJSON", function () {
+//   const { __v, _id, ...object } = this.toObject();
+//   object.id = _id;
+//   return object;
+// });
 
 BookSchema.pre("save", async function (next: mongoose.HookNextFunction){
     let user = this as UserDocument;
