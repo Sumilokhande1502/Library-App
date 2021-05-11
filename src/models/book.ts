@@ -1,36 +1,59 @@
+import * as mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
-import * as mongoose from 'mongoose';
-// import * as bcrypt from 'bcrypt-nodejs';
+export interface UserDocument extends mongoose.Document {
+    email: string;
+    name : string;
+    password : string;
+    createdAt: Date;
+    updatedAt: Date;
+    comparePassword(adminPassword: string): Promise<boolean>;
+}
 
+const BookSchema = new mongoose.Schema(
+  {
+    title: { type: String },
+    description: { type: String },
+    category: { type: String },
+    edition: { type: Number },
+  },
+  { timestamps: true }
+);
 
-const { Schema } = mongoose;
-
-const BookSchema = new Schema(
-    {
-    title: {type: String, lowercase:true, required: true},
-    description: {type: String, required: true},
-    category: {type: String, required: true, lowercase: false},
-    edition : {type: Number, required: true}
+BookSchema.method("toJSON", function () {
+  const { __v, _id, ...object } = this.toObject();
+  object.id = _id;
+  return object;
 });
 
-BookSchema.method("toJSON", function() {
-    const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
-    return object;
-  });
+BookSchema.pre("save", async function (next: mongoose.HookNextFunction){
+    let user = this as UserDocument;
 
-// UserSchema.pre('save', function(next) {
-//     // do stuff
-//     const user:any = this;
-//     bcrypt.hash(user.password, null, null, function(err, hash) {   
-//         if(err) return next(err);
-//         user.password = hash;
-//     })
+    //Only hash the psswrd if it has been modified 
+    if(!user.isModified("password")) return next();
 
-//     next();
-// });
+    //Random additional data
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
 
-export default mongoose.model (
-    "Book",
-    BookSchema
-)
+    const hash = await bcrypt.hashSync(user.password, salt);
+
+    //Replace password with hash
+    user.password = hash;
+
+    return next();
+});
+
+//Used for login
+BookSchema.methods.comparePassword = async function(adminPassword : string) 
+    { 
+        const admin = this as UserDocument;
+
+        return bcrypt.compare(adminPassword, admin.password).catch((err) => false);
+    }
+
+
+
+const Book = mongoose.model<UserDocument>("Book", BookSchema);
+
+export default Book;
