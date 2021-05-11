@@ -11,6 +11,7 @@ router.post('/addBook', controller.addBook);
 router.get('/getBook',controller.getBook)
 router.delete('/removeBook',controller.removeBook)
 router.put('/updateBook',controller.updateBook)
+router.get('/getAllBook',controller.getAllBook)
 
 router.post('/admin', validateRequest(createUserSchema), createUserHandler);
 
