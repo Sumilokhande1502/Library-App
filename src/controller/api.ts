@@ -1,5 +1,5 @@
 import { Express, Request, Response, NextFunction } from "express";
-import Book from "../models/book";
+import Book from "../schema/book";
 
 async function hello(req: Request, res: Response, next: NextFunction) {
   res.status(400).send("Unable to save into Database");
@@ -9,13 +9,13 @@ async function hello(req: Request, res: Response, next: NextFunction) {
 //To inser data in DB
 async function addBook(req: Request, res: Response) {
   try {
-    const user = new Book({
+    const book = new Book({
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
       edition: req.body.edition,
     });
-    const insertData = await user.save();
+    const insertData = await book.save();
     res.status(200).send(insertData);
   } catch {
     res.status(400).send("Error: please provide data!!");
