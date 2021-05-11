@@ -1,21 +1,21 @@
 export default {
-    port: 5000,
-    host:'localhost',
-    accessTokenTtl: "15m",
-    refreshTokenTtl: "1y",
-    privatekey: `-----BEGIN RSA PRIVATE KEY-----
-    MIICXgIBAAKBgQCmMjTBpBguamoWBq/+BJtyKDqSQxWs03uX4gKom8W/q1MtvuU0
-    LlqS13oJA7pv53wX3DFfQAlmK/5zR+2ysP0oDvij7aijM4Ntg2ktRL+/6JGi/G06
-    9Jw0ssAVtqTfrOuIuOkgl1epO3RAE7HN6QGdxz5a0Hp52149Ob6pMeXrGQIDAQAB
-    AoGABp+xopYbsJ3lJIOXuBQO7fnUe8fYsU6sel0zpeyvcPgvFH+rOu0uBvQ3lOxl
-    HdioBXttLFKtDTlrpsSTILAVJtbX4TCiWN96jbWft7xvqZPTFRIIA66Eg3724v40
-    wQYJxKg77s6sFOhnaps2cEuwenPClV3u3Ljy9f035jIE1pECQQD4ZIT9ziGOZTQn
-    02GXWBegt9wpNMeyPwcMDRfOI8LHrLfciGdFWshz0ANHXnX7+o4TKmjkNRoNeFfO
-    XoR2frEfAkEAq0k9EspJA0NZ4SE6N3X3IV3OKiV27nLvXlS2DvLhCEFLw58m1dIv
-    7HYS/A03kf/LdzXxFpaoWX6Apf75z+JExwJBAN68xMUTYuPdvLc5xfmA9S8ZsEMD
-    IU+lVRxpYT9osfF74CPR7Ukz7yxrC4WkHwil1WE6VnTNaV9K2vIjr4TSduECQQCc
-    SBKlVlQP2h/jvYF0oPl/RCubYNuG7O9iTkBem1SfR5RtRIUWitSXF5RyzUxqtc1b
-    U6hJR+UK4tVWn7Im7vh5AkEAyqwatJBKmd2xhb6I2v9la/Jib6F+7mWppMB/oZ9f
-    vSv/T7g5OR8B7O3nhisfkNIwdo99rGEe/ougQA28+DGdQA==
-    -----END RSA PRIVATE KEY-----`
+  port: 5000,
+  host: "localhost",
+  accessTokenTtl: "15m",
+  refreshTokenTtl: "1y",
+  privateKey: `-----BEGIN RSA PRIVATE KEY-----
+  MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX
+  01ajpafM7c7f5PO+wAcGYIxiTQsv9ml2/cgnB6MWG/YYKDCfbWLNbpvQxYlUCu0f
+  bRHc4dYM3AysBpx/SE9JNAlUoRsuQ05PP3U0IsM9FzYUpyZ9TDR7bjPYyQIDAQAB
+  AoGABnnAXS3mFb36/FA+dBC7AdapQVL1IJMPFFXyGN4eqTlur08zRR5hcqHawjIf
+  qyA97d/zsM6fHz70dKftHoHQ/hZKfWsBr2+R8C7rY/tlJhM24kqusDvNA9AMNoQW
+  K4+DF+J05q5a+VWjP07Y976LZjq+vXlEVBfEiHig4wECaDECQQDbRQ5L9Mcibd5a
+  R+Y3LxtXu0agpSG1dYDcWlLzRAt6yDD/EziRV8DSFyvgj1amO0SQ+2K/Hp5BEHii
+  fDJB48ZFAkEAqFv32dNZcBy4IKAAHPgxhsYBcuUCHGfwwxxXJ3DjjZlhuR4K9YjO
+  0alf4zNOlUyoULe9z+OAIgIqI9EyIX2itQJAShMeLVLYIy1yvJUllOb5Gb5Osd6X
+  cLHtgoORGlWWezg+NS3NImy+2zqwvAAwiZ/kHgaO6XnyhJCH8Hx8jf3g8QJAepLK
+  tlo7iXY/T/FtY6oHVNof/+hfSxMZpNOjWGHGKjd7gG0xCWZbPSYVW7LlCanP+URs
+  +0fk592vlHggCWYQ6QJANZzno1FwUOjtGLeKm83ZGdbo3K+00i25FmBgB2d0uAtk
+  noxFVOjsY+eSXHZqNybrhWRAzutSnpz/QEf/7Vg97g==
+  -----END CERTIFICATE-----`,
 };
