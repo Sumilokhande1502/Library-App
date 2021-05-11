@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true, use
 
 
 app.get('*', function(req, res){
-    res.sendFile(__dirname + '/public/app/views/index.html');
+    res.send('Welcom to the Server');
 });
 
 

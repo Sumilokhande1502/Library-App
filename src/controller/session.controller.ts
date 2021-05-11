@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import config from 'config';
+import config from "config";
 import { validatePassword } from "../service/user.service";
 import { createAccessToken, createSession } from "../service/session.service";
-import {sign} from '../utils/jwt.util';
+import { sign } from "../utils/jwt.util";
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   //validate the email and password is registered
-  const user:any = await validatePassword(req.body);
+  const user: any = await validatePassword(req.body);
 
   if (!user) {
     res.status(401).send("Invalid username or password");
@@ -17,14 +17,14 @@ export async function createUserSessionHandler(req: Request, res: Response) {
 
   const accessToken = createAccessToken({
     user,
-    session
+    session,
   });
 
   //create refresh token
   const refreshToken = sign(session, {
-      expiresIn: config.get("refreshTokenTtl"), //1 year
+    expiresIn: config.get("refreshTokenTtl"), //1 year
   });
 
   //send both tokens
-  return res.send({accessToken, refreshToken});
+  return res.send({ accessToken, refreshToken });
 }
