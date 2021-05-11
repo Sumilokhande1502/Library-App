@@ -45,6 +45,21 @@ async function getBook(req:Request,res:Response)
     
 }
 
+//To get All Books
+async function getAllBook(req:Request,res:Response)
+{
+    await Book.find((err:any,book:any)=>{
+            if(book)
+            {
+                res.status(201).send(book)
+            }
+            else{
+                res.status(400).send("No Book Found")
+            }
+        })
+    
+}
+
 // To delete the book
 async function removeBook(req:Request,res:Response)
 {
@@ -92,5 +107,5 @@ async function updateBook(req:Request,res:Response)
 
 
 export default {
-    hello, addBook,getBook,removeBook,updateBook
+    hello, addBook,getBook,removeBook,updateBook,getAllBook
 }
