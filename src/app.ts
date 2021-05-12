@@ -18,14 +18,14 @@ app.use("/api", route);
 //MongoDB connection
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
-    console.log('Connected to Database');
+    console.info('Connected to Database');
 })
 .catch(() => {
-    console.log('Error');
+    console.info('Error');
 })
 
 
 
 
 
-app.listen(5000, () => console.log(`Server is running at http://${host}:${port}`));
+app.listen(5000, () => console.info(`Server is running at http://${host}:${port}`));

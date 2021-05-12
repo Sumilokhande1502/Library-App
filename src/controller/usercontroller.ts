@@ -30,7 +30,7 @@ async function register(req: Request, res: Response, next: NextFunction) {
       expiresIn: "24h", // expires in 24 hours
     });
     const userData = await user.save();
-    console.log(userData);
+    console.info(userData);
     res.status(200).send({ auth: true, token: token });
   } catch (err) {
     res.status(500).send("There was a problem registering the user.");
