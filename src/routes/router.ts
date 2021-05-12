@@ -13,7 +13,7 @@ router.put('/updateBook',controller.updateBook)
 router.get('/getAllBook',controller.getAllBook)
 
 router.post('/register', authController.register);
-router.get('/user', verifyToken, authController.getUserId);
+router.get('/user', verifyToken, authController.verifyUser);
 router.post('/login', authController.login);
 router.get('/logout', authController.logout);
 export default router;

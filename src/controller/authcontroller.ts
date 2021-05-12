@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import df from "../default/default";
 import User from "../schema/user";
-import userId from './verifyToken';
+import userId from "./verifyToken";
 
 async function register(req: Request, res: Response, next: NextFunction) {
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
@@ -26,7 +26,7 @@ async function register(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-async function getUserId(req: Request, res: Response, next: NextFunction) {
+async function verifyUser(req: Request, res: Response, next: NextFunction) {
   // const token: any = req.headers["x-access-token"];
 
   // if (!token)
@@ -39,14 +39,12 @@ async function getUserId(req: Request, res: Response, next: NextFunction) {
   //       .send({ auth: false, message: "Failed to authenticate token." });
 
   //   // res.status(200).send(decoded);
-    User.findById(userId,{password:0}, function(err:Error, user:any){
-      if (err)
-        return res.status(500).send("There was a problem finding the user.");
-      if (!user) 
-        return res.status(404).send("No user found.");
+  User.findById(userId, function (err: Error, user: any) {
+    if (err)
+      return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
 
-      res.status(200).send(user);
-    });
+    res.status(200).send(user);
   });
 }
 
@@ -79,7 +77,7 @@ async function logout(req: Request, res: Response) {
 
 export default {
   register,
-  getUserId,
+  verifyUser,
   login,
   logout,
 };
