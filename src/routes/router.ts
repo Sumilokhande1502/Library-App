@@ -1,7 +1,7 @@
 import express from 'express';
 import controller from '../controller/api';
 import authController from '../controller/authcontroller';
-import verifyToken from '../controller/verifyToken';
+import verifyToken from '../middleware/verifyToken';
 
 
 let router = express.Router();
