@@ -5,7 +5,7 @@ import route from './routes/router';
 
 const port = df.port as number;
 const host = df.host as string;
-
+const uri = df.uri as string;
 
 
 const app = express();
@@ -16,7 +16,7 @@ app.use("/api", route);
 
 
 //MongoDB connection
-mongoose.connect('mongodb://localhost:27017/database', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
     console.log('Connected to Database');
 })
