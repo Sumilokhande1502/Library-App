@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const book_1 = __importDefault(require("../models/book"));
+const book_1 = __importDefault(require("../schema/book"));
 function hello(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         res.status(400).send("Unable to save into Database");
@@ -23,13 +23,13 @@ function hello(req, res, next) {
 function addBook(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const user = new book_1.default({
+            const book = new book_1.default({
                 title: req.body.title,
                 description: req.body.description,
                 category: req.body.category,
                 edition: req.body.edition,
             });
-            const insertData = yield user.save();
+            const insertData = yield book.save();
             res.status(200).send(insertData);
         }
         catch (_a) {

@@ -14,14 +14,11 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use("/api", router_1.default);
 //MongoDB connection
-mongoose_1.default.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose_1.default.connect('mongodb://localhost:27017/database', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
     console.log('Connected to Database');
 })
     .catch(() => {
     console.log('Error');
-});
-app.get('*', function (req, res) {
-    res.send('Welcom to the Server');
 });
 app.listen(5000, () => console.log(`Server is running at http://${host}:${port}`));

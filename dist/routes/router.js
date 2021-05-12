@@ -5,10 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const api_1 = __importDefault(require("../controller/api"));
+const authcontroller_1 = __importDefault(require("../controller/authcontroller"));
+const verifyToken_1 = __importDefault(require("../controller/verifyToken"));
 let router = express_1.default.Router();
 router.post('/addBook', api_1.default.addBook);
 router.get('/getBook', api_1.default.getBook);
 router.delete('/removeBook', api_1.default.removeBook);
 router.put('/updateBook', api_1.default.updateBook);
 router.get('/getAllBook', api_1.default.getAllBook);
+router.post('/register', authcontroller_1.default.register);
+router.get('/user', verifyToken_1.default, authcontroller_1.default.getUserId);
+router.post('/login', authcontroller_1.default.login);
+router.get('/logout', authcontroller_1.default.logout);
 exports.default = router;

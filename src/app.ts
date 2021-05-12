@@ -1,10 +1,10 @@
 import express from 'express';
-import config from 'config';
 import mongoose from 'mongoose';
+import df from './default/default';
 import route from './routes/router';
 
-const port = config.get("port") as number;
-const host = config.get("host") as string;
+const port = df.port as number;
+const host = df.host as string;
 
 
 
@@ -16,7 +16,7 @@ app.use("/api", route);
 
 
 //MongoDB connection
-mongoose.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://localhost:27017/database', { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
     console.log('Connected to Database');
 })
@@ -24,10 +24,6 @@ mongoose.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true, use
     console.log('Error');
 })
 
-
-app.get('*', function(req, res){
-    res.send('Welcom to the Server');
-});
 
 
 
