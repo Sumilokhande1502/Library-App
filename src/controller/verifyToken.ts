@@ -4,7 +4,6 @@ import df from '../default/default';
 
 async function verifyToken(req: Request, res: Response, next: NextFunction) {
   const token:any = req.headers['x-access-token'];
-  let userId = req.params;
   if (!token)
     return res.status(403).send({ auth: false, message: 'No token provided.' });
     
@@ -13,7 +12,7 @@ async function verifyToken(req: Request, res: Response, next: NextFunction) {
     return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
       
     // if everything good, save to request for use in other routes
-    userId = decoded.id;
+    req.body.userId = decoded.id;
     next();
   });
 }
