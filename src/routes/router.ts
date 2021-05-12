@@ -1,21 +1,25 @@
 import express from 'express';
 import controller from '../controller/api';
-import authController from '../controller/authcontroller';
+import userController from '../controller/usercontroller';
 import verifyToken from '../middleware/verifyToken';
 
 
 let router = express.Router();
 
+//Library controller routes for books
 router.post('/addBook', controller.addBook);
 router.get('/getBook',controller.getBook)
 router.delete('/removeBook',controller.removeBook)
 router.put('/updateBook',controller.updateBook)
-router.get('/getAllBook',controller.getAllBook)
+router.get('/getAllBook',controller.getAllBooks)
 
-router.post('/register', authController.register);
-router.get('/user', verifyToken, authController.verifyUser);
-router.post('/login', authController.login);
-router.get('/logout', authController.logout);
+//User controller routes with jwt tokens
+router.post('/register', userController.register);
+router.get('/user', verifyToken, userController.verifyUser);
+router.post('/login', userController.login);
+router.get('/logout', userController.logout);
+
+
 export default router;
 
 

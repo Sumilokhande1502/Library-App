@@ -1,12 +1,12 @@
 import { Express, Request, Response, NextFunction } from "express";
-import Book from "../schema/book";
+import Book from "../schema/book.schema";
 
 async function hello(req: Request, res: Response, next: NextFunction) {
   res.status(400).send("Unable to save into Database");
   console.log("unable to send data");
 }
 
-//To inser data in DB
+//To insert book in DB
 async function addBook(req: Request, res: Response) {
   try {
     const book = new Book({
@@ -22,7 +22,7 @@ async function addBook(req: Request, res: Response) {
   }
 }
 
-//To get data from DB
+//To get book from DB
 async function getBook(req: Request, res: Response) {
   let title = req.body.title;
   await Book.findOne({ title: title }, (err: any, book: any) => {
@@ -35,7 +35,7 @@ async function getBook(req: Request, res: Response) {
 }
 
 //To get All Books
-async function getAllBook(req: Request, res: Response) {
+async function getAllBooks(req: Request, res: Response) {
   await Book.find((err: any, book: any) => {
     if (book) {
       res.status(201).send(book);
@@ -82,5 +82,5 @@ export default {
   getBook,
   removeBook,
   updateBook,
-  getAllBook,
+  getAllBooks,
 };
