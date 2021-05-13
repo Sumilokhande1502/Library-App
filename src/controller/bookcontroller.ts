@@ -16,9 +16,10 @@ async function addBook(req: Request, res: Response) {
       edition: req.body.edition,
     });
     const insertData = await book.save();
+    console.info(insertData);
     res.status(200).send(insertData);
   } catch {
-    res.status(400).send("Error: please provide data!!");
+    res.status(400).send("Error: Already Exist");
   }
 }
 

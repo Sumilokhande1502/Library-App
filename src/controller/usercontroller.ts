@@ -33,7 +33,7 @@ async function register(req: Request, res: Response, next: NextFunction) {
     console.info(userData);
     res.status(200).send({ auth: true, token: token });
   } catch (err) {
-    res.status(500).send("There was a problem registering the user.");
+    res.status(500).send("User already exist.");
   }
 }
 
