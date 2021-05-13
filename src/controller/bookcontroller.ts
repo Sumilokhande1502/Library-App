@@ -8,7 +8,6 @@ async function hello(req: Request, res: Response, next: NextFunction) {
 
 //To insert book in DB
 async function addBook(req: Request, res: Response) {
-<<<<<<< HEAD:src/controller/bookcontroller.ts
   const book = new Book({
     title: req.body.title,
     description: req.body.description,
@@ -18,11 +17,6 @@ async function addBook(req: Request, res: Response) {
 
   await Book.findOne(
     {
-=======
-  try {
-    const book = new Book({
-      id: req.body.id,
->>>>>>> 3740197318132bb2628ef9ef3e51e355d59633e2:src/controller/api.ts
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
