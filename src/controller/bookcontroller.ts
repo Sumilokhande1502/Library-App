@@ -8,6 +8,7 @@ async function hello(req: Request, res: Response, next: NextFunction) {
 
 //To insert book in DB
 async function addBook(req: Request, res: Response) {
+<<<<<<< HEAD:src/controller/bookcontroller.ts
   const book = new Book({
     title: req.body.title,
     description: req.body.description,
@@ -17,6 +18,11 @@ async function addBook(req: Request, res: Response) {
 
   await Book.findOne(
     {
+=======
+  try {
+    const book = new Book({
+      id: req.body.id,
+>>>>>>> 3740197318132bb2628ef9ef3e51e355d59633e2:src/controller/api.ts
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
@@ -58,12 +64,13 @@ async function getAllBooks(req: Request, res: Response) {
 
 // To delete the book
 async function removeBook(req: Request, res: Response) {
-  let title = req.body.title;
-  await Book.deleteOne({ title: title }, (result: any) => {
-    if (!result) {
-      res.status(404).send("Book Is Already Deleted");
+  console.log(req.body.id)
+
+  await Book.deleteOne({_id:req.body.id}, () => {
+    if (true) {
+      res.status(200).send("Book Has Been Removed");
     } else {
-      res.status(201).send("Book Has Been Removed");
+      res.status(201).send("No Book Available With This ID");
     }
   });
 }
@@ -74,7 +81,7 @@ async function updateBook(req: Request, res: Response) {
   let category = req.body.category;
   let edition = req.body.edition;
 
-  await Book.findOne({ title: title }, (err: any, book: any) => {
+  await Book.findOne({_id:req.body.id}, (err: any, book: any) => {
     book.title = title;
     book.description = description;
     book.category = category;

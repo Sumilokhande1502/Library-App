@@ -22,8 +22,8 @@ async function register(req: Request, res: Response, next: NextFunction) {
     role: req.body.role
   });
 
-
   try {
+    
     
 
     const token = jwt.sign({ id: user._id }, df.privateKey, {
@@ -31,6 +31,7 @@ async function register(req: Request, res: Response, next: NextFunction) {
     });
     const userData = await user.save();
     console.info(userData);
+    
     res.status(200).send({ auth: true, token: token });
   } catch (err) {
     res.status(500).send("User already exist.");

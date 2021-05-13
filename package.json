@@ -12,8 +12,14 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+<<<<<<< HEAD
     "mongoose": "^5.12.8",
     "mongoose-sequence": "^4.0.1"
+=======
+    "mongoose": "^5.12.7",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-sequence": "^5.3.1"
+>>>>>>> 3740197318132bb2628ef9ef3e51e355d59633e2
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.1",

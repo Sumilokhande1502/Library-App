@@ -16,13 +16,14 @@ app.use("/api", route);
 
 
 //MongoDB connection
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false })
 .then(() => {
     console.info('Connected to Database');
 })
 .catch(() => {
     console.info('Error');
 })
+
 
 
 
