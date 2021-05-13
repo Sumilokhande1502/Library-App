@@ -8,19 +8,29 @@ async function hello(req: Request, res: Response, next: NextFunction) {
 
 //To insert book in DB
 async function addBook(req: Request, res: Response) {
-  try {
-    const book = new Book({
+  const book = new Book({
+    title: req.body.title,
+    description: req.body.description,
+    category: req.body.category,
+    edition: req.body.edition,
+  });
+
+  await Book.findOne(
+    {
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
       edition: req.body.edition,
-    });
-    const insertData = await book.save();
-    console.info(insertData);
-    res.status(200).send(insertData);
-  } catch {
-    res.status(400).send("Error: Already Exist");
-  }
+    },
+    (err: any, book: any) => {
+      if (book)  
+      res.status(400).send({err: "Book already exist", Book_Info: book});
+    }
+  );
+
+  const bookinfo = await book.save();
+  console.info(bookinfo);
+  res.status(200).send({Log: 'Book successfully added', bookinfo});
 }
 
 //To get book from DB
@@ -28,7 +38,7 @@ async function getBook(req: Request, res: Response) {
   let title = req.body.title;
   await Book.findOne({ title: title }, (err: any, book: any) => {
     if (book) {
-      res.status(201).send(book);
+      res.status(201).send({Log: 'Book Found',Book_Info: book});
     } else {
       res.status(400).send("No Book Found");
     }
@@ -72,7 +82,7 @@ async function updateBook(req: Request, res: Response) {
 
     book.save((err: any, book: any) => {
       if (err) res.status(400).send("Book is Not Updated");
-      else res.status(400).send(book);
+      else res.status(400).send({Log: 'Book updated successfully', Book_Info: book});
     });
   });
 }
