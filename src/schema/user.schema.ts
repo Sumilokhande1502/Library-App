@@ -15,6 +15,6 @@ const UserSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("User", UserSchema);
-User.createIndexes();
+User.createIndexes(); //Same index won't push data if already exist i will give error
 
 export default User;

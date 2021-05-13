@@ -10,6 +10,7 @@ async function hello(req: Request, res: Response, next: NextFunction) {
 async function addBook(req: Request, res: Response) {
   try {
     const book = new Book({
+      id: req.body.id,
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
@@ -47,12 +48,13 @@ async function getAllBooks(req: Request, res: Response) {
 
 // To delete the book
 async function removeBook(req: Request, res: Response) {
-  let title = req.body.title;
-  await Book.deleteOne({ title: title }, (result: any) => {
-    if (!result) {
-      res.status(404).send("Book Is Already Deleted");
+  console.log(req.body.id)
+
+  await Book.deleteOne({_id:req.body.id}, () => {
+    if (true) {
+      res.status(200).send("Book Has Been Removed");
     } else {
-      res.status(201).send("Book Has Been Removed");
+      res.status(201).send("No Book Available With This ID");
     }
   });
 }
@@ -63,7 +65,7 @@ async function updateBook(req: Request, res: Response) {
   let category = req.body.category;
   let edition = req.body.edition;
 
-  await Book.findOne({ title: title }, (err: any, book: any) => {
+  await Book.findOne({_id:req.body.id}, (err: any, book: any) => {
     book.title = title;
     book.description = description;
     book.category = category;
