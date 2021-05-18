@@ -22,11 +22,16 @@ mongoose
   .catch(() => {
     console.info("Error");
   });
-
+  const PORT = process.env.PORT || 3000;
 async function bootstrap() {
   const PORT = process.env.PORT || 3000;
   console.log(`Server is running at ${PORT}`);
   await app.listen(PORT);
 }
 
-bootstrap();
+// bootstrap();
+
+
+app.listen(PORT, () => {
+    console.log(`> Ready on http://localhost:${PORT}`)
+})
