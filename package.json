@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": { "node": "14.16.1" },
+  "engines": { "node": "14.16.1",
+    "npm": "7.11.1" },
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon --config nodemon.json src/app.ts"
