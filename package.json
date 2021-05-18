@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": { "node": "14.16.1" },
   "scripts": {
-    "start": "nodemon src/app.ts",
+    "start": "dist/app.js",
     "dev": "nodemon --config nodemon.json src/app.ts"
   },
   "dependencies": {
