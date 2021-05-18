@@ -4,7 +4,7 @@ import df from './default/default';
 import route from './routes/router';
 import * as dotenv from 'dotenv';
 
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT;
 const uri = df.uri as string;
 
 dotenv.config();// access config var
