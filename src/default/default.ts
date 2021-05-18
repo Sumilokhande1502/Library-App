@@ -1,5 +1,4 @@
 export default {
-  host: "localhost",
   uri:'mongodb://localhost:27017/database',
   privateKey: `-----BEGIN RSA PRIVATE KEY-----
   MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX
