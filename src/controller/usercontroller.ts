@@ -50,7 +50,7 @@ async function verifyUser(req: Request, res: Response, next: NextFunction) {
 
 async function login(req: Request, res: Response, next: NextFunction) {
   User.findOne(
-    { email: req.body.email },
+    { email: req.body.email, username: req.body.username},
     function (err: any, user: any) {
       if (err) return res.status(500).send("Error on the server.");
       if (!user) return res.status(404).send("No user found.");
@@ -66,7 +66,7 @@ async function login(req: Request, res: Response, next: NextFunction) {
         expiresIn: "24h", // expires in 24 hours
       });
 
-      res.status(200).send({ auth: true, token: token });
+      res.status(200).send({auth: true, token: token });
     }
   );
 }
