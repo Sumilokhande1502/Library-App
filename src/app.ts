@@ -10,18 +10,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", route);
 
 //MongoDB connection
-mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.info("Connected to Database");
-  })
-  .catch(() => {
-    console.info("Error");
-  });
+function mongoSetup() {
+    // mongoose.Promise = global.Promise;
+    mongoose.connect("mongodb://localhost:27017/database", { useUnifiedTopology: true, useNewUrlParser: true,useFindAndModify:false  ,useCreateIndex: true});
+    const db = mongoose.connection
+    db.on('error', (err) => {
+        console.log("Error while connecting DB", err);
+    })
+    db.once('open', () => {
+        console.log("DB Connected!!!");
+    })
+}
+
+
+  
   const PORT = process.env.PORT || 3000;
 async function bootstrap() {
   const PORT = process.env.PORT || 3000;
@@ -34,4 +36,6 @@ async function bootstrap() {
 
 app.listen(PORT, () => {
     console.log(`> Ready on http://localhost:${PORT}`)
+
+    mongoSetup();
 })
