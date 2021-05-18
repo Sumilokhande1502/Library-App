@@ -9,7 +9,7 @@
     "postinstall": "tsc",
     "dev": "nodemon --config nodemon.json src/app.ts",
     "watch-ts": "tsc -w",
-    "deploy": "git add . && git commit -m Heroku && git push heroku master"
+    "deploy": "git add https://git.heroku.com/young-brushlands-12021.git && git commit -m Heroku && git push heroku master"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
