@@ -7,10 +7,10 @@
     "npm": "7.11.1" },
   "scripts": {
     "start": "node dist/app.js",
-    "postinstall":"tsc",
-    "watch-node":"nodemon dist/app.js",
-    "watch-ts":"tsc -w",
-    "deploy":"git add . && git commit -m heroku && git push heroku main",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/app.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add https://git.heroku.com/backend-app-library-mngmnt.git && git commit -m Heroku && git push heroku main",
     "test":"ts-node src/app.ts",
     "dev": "nodemon --config nodemon.json src/app.ts",
     "prod":"tsc && nodemon src/app.ts"
