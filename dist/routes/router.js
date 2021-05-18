@@ -4,17 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const api_1 = __importDefault(require("../controller/api"));
-const authcontroller_1 = __importDefault(require("../controller/authcontroller"));
-const verifyToken_1 = __importDefault(require("../controller/verifyToken"));
+const bookcontroller_1 = __importDefault(require("../controller/bookcontroller"));
+const usercontroller_1 = __importDefault(require("../controller/usercontroller"));
+const verifyToken_1 = __importDefault(require("../middleware/verifyToken"));
 let router = express_1.default.Router();
-router.post('/addBook', api_1.default.addBook);
-router.get('/getBook', api_1.default.getBook);
-router.delete('/removeBook', api_1.default.removeBook);
-router.put('/updateBook', api_1.default.updateBook);
-router.get('/getAllBook', api_1.default.getAllBook);
-router.post('/register', authcontroller_1.default.register);
-router.get('/user', verifyToken_1.default, authcontroller_1.default.getUserId);
-router.post('/login', authcontroller_1.default.login);
-router.get('/logout', authcontroller_1.default.logout);
+//Library controller routes for books
+router.post('/addBook', bookcontroller_1.default.addBook);
+router.get('/getBook', bookcontroller_1.default.getBook);
+router.delete('/removeBook', bookcontroller_1.default.removeBook);
+router.put('/updateBook', bookcontroller_1.default.updateBook);
+router.get('/getAllBooks', bookcontroller_1.default.getAllBooks);
+//User controller routes with jwt tokens
+router.post('/register', usercontroller_1.default.register);
+router.get('/user', verifyToken_1.default, usercontroller_1.default.verifyUser);
+router.post('/login', usercontroller_1.default.login);
+router.get('/logout', usercontroller_1.default.logout);
 exports.default = router;
