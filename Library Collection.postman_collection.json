@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ee7c302f-21ba-4bd0-a0cf-bf1a6f163475",
+		"_postman_id": "d295d208-dd9a-4491-8819-9337f02790d8",
 		"name": "Library Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -167,13 +167,7 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOWE5NWY5ZGM5OTk4MzNhOGNiODk2MyIsImlhdCI6MTYyMDc0MzY3MywiZXhwIjoxNjIwODMwMDczfQ.PBjjXbwPaz7_GGgqVZhwP_Nij2bB-yHEvTuLqcOOAWE",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": [
