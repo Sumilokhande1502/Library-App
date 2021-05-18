@@ -7,7 +7,13 @@
     "npm": "7.11.1" },
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon --config nodemon.json src/app.ts"
+    "postinstall":"tsc",
+    "watch-node":"nodemon dist/app.js",
+    "watch-ts":"tsc -w",
+    "deploy":"git add . && git commit -m heroku && git push heroku main",
+    "test":"ts-node src/app.ts",
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "prod":"tsc && nodemon src/app.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -26,8 +26,4 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true,useFindA
 })
 
 
-
-
-
-
 app.listen(5000, () => console.info(`Server is running at http://${host}:${PORT}`));
