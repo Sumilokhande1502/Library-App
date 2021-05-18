@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node dist/app.js",
     "postinstall": "tsc",
-    "watch-ts": "tsc -w",
-    "deploy": "git add Procfile && git commit -m Heroku && git push heroku main"
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "watch-ts": "tsc -w"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
