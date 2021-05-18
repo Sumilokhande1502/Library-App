@@ -8,7 +8,7 @@
     "npm": "7.11.1"
   },
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node app",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/app.js",
     "watch-ts": "tsc -w",
