@@ -1,1 +1,1 @@
-web: nodemon --config nodemon.json src/app.ts
+web: nodemon src/app.ts
