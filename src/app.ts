@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import df from './default/default';
 import route from './routes/router';
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 const uri = df.uri as string;
 
