@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 
 const BookSchema = new mongoose.Schema(
   {
-    id: {type:Number,unique:true,index:true,require,default:0},
     title: { type: String },
     description: { type: String },
     category: { type: String },
@@ -15,5 +14,5 @@ const BookSchema = new mongoose.Schema(
 // BookSchema.plugin(AutoIncrement, { inc_field: "bookId" });
 
 const Book = mongoose.model("Book", BookSchema);
-Book.createIndexes();
+// Book.createIndexes();
 export default Book;

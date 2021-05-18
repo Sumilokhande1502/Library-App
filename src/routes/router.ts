@@ -7,11 +7,11 @@ import verifyToken from '../middleware/verifyToken';
 let router = express.Router();
 
 //Library controller routes for books
-router.post('/addBook', controller.addBook);
+router.post('/addBook', controller.add);
 router.get('/getBook',controller.getBook)
 router.delete('/removeBook',controller.removeBook)
 router.put('/updateBook',verifyToken,controller.updateBook)
-router.get('/getAllBook',controller.getAllBooks)
+router.get('/getAllBooks',controller.getAllBooks)
 
 //User controller routes with jwt tokens
 router.post('/register', userController.register);
