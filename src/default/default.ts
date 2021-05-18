@@ -14,6 +14,5 @@ export default {
   tlo7iXY/T/FtY6oHVNof/+hfSxMZpNOjWGHGKjd7gG0xCWZbPSYVW7LlCanP+URs
   +0fk592vlHggCWYQ6QJANZzno1FwUOjtGLeKm83ZGdbo3K+00i25FmBgB2d0uAtk
   noxFVOjsY+eSXHZqNybrhWRAzutSnpz/QEf/7Vg97g==
-  -----END CERTIFICATE-----`,
-  secret: '',
+  -----END CERTIFICATE-----`
 };

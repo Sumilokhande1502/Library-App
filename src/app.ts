@@ -1,30 +1,32 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import df from './default/default';
-import route from './routes/router';
-import * as dotenv from 'dotenv';
-
-const PORT = process.env.PORT || 5000;
+import express from "express";
+import mongoose from "mongoose";
+import df from "./default/default";
+import route from "./routes/router";
 const uri = df.uri as string;
-
-dotenv.config();// access config var
- console.log("process.env.PORT",process.env.PORT);
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use("/api", route);
 
 //MongoDB connection
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false })
-.then(() => {
-    console.info('Connected to Database');
-})
-.catch(() => {
-    console.info('Error');
-})
+mongoose
+  .connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.info("Connected to Database");
+  })
+  .catch(() => {
+    console.info("Error");
+  });
 
+async function bootstrap() {
+  const PORT = process.env.PORT || 3000;
+  console.log(`Server is running at ${PORT}`);
+  await app.listen(PORT);
+}
 
-app.listen(PORT, () => {
-    console.log(`> Ready on http://localhost:${PORT}`)
-})
+bootstrap();
