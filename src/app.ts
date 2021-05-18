@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 import df from './default/default';
 import route from './routes/router';
 
-const port = df.port as number;
+const PORT = process.env.PORT || 5000;
+
 const host = df.host as string;
 const uri = df.uri as string;
 
@@ -29,4 +30,4 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true,useFindA
 
 
 
-app.listen(5000, () => console.info(`Server is running at http://${host}:${port}`));
+app.listen(5000, () => console.info(`Server is running at http://${host}:${PORT}`));
