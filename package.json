@@ -5,10 +5,8 @@
   "main": "index.js",
   "engines": { "node": "14.16.1" },
   "scripts": {
-    "start": "node dist/app.js",
-    "postinstall": "tsc",
-    "dev": "nodemon --config nodemon.json src/app.ts",
-    "watch-ts": "tsc -w"
+    "start": "ts-node src/app.ts",
+    "dev": "nodemon --config nodemon.json src/app.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
