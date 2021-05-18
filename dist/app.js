@@ -26,8 +26,8 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const default_1 = __importDefault(require("./default/default"));
 const router_1 = __importDefault(require("./routes/router"));
-const dotenv = __importStar(require("dotenvy"));
-const PORT = process.env.PORT;
+const dotenv = __importStar(require("dotenv"));
+const PORT = process.env.PORT || 5000;
 const uri = default_1.default.uri;
 dotenv.config(); // access config var
 console.log("process.env.PORT", process.env.PORT);
