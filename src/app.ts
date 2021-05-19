@@ -12,7 +12,7 @@ app.use("/api", route);
 //MongoDB connection
 function mongoSetup() {
     // mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost:27017/database", { useUnifiedTopology: true, useNewUrlParser: true,useFindAndModify:false  ,useCreateIndex: true});
+    mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true,useFindAndModify:false  ,useCreateIndex: true});
     const db = mongoose.connection
     db.on('error', (err) => {
         console.log("Error while connecting DB", err);

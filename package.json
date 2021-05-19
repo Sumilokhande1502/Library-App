@@ -1,12 +1,8 @@
 {
-  "name": "myapp",
+  "name": "library",
   "version": "1.0.0",
-  "description": "",
+  "description": "Library mamgement backend application",
   "main": "index.js",
-  "engines": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
   "scripts": {
     "start": "node dist/app.js",
     "postinstall": "tsc",
@@ -37,5 +33,7 @@
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }
