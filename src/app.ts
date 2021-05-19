@@ -11,6 +11,7 @@ const uri = df.uri as string;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('/public'));
 app.use("/api", route);
 
 //MongoDB connection
@@ -26,6 +27,9 @@ function mongoSetup() {
     })
 }
 
+app.get('*', function(req, res){
+  res.sendFile(__dirname + '/public/app/views/index.html');
+});
 
   
 async function bootstrap() {
