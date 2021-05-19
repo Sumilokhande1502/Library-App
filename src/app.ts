@@ -27,7 +27,7 @@ function mongoSetup() {
     })
 }
 
-app.get('*', function(req, res){
+app.get('/home', function(req, res){
   res.sendFile(__dirname + '/public/app/views/index.html');
 });
 
