@@ -16,10 +16,13 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const default_1 = __importDefault(require("./default/default"));
 const router_1 = __importDefault(require("./routes/router"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const uri = default_1.default.uri;
 const app = express_1.default();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use(express_1.default.static('/public'));
 app.use("/api", router_1.default);
 //MongoDB connection
 function mongoSetup() {
@@ -33,16 +36,16 @@ function mongoSetup() {
         console.log("DB Connected!!!");
     });
 }
-const PORT = process.env.PORT || 3000;
+app.get('*', function (req, res) {
+    res.sendFile(__dirname + '/public/app/views/index.html');
+});
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
-        const PORT = process.env.PORT || 3000;
-        console.log(`Server is running at ${PORT}`);
+        const PORT = process.env.PORT;
+        const HOST = process.env.HOST;
+        console.log(`Server is running at http://${HOST}:${PORT}`);
         yield app.listen(PORT);
+        mongoSetup();
     });
 }
-// bootstrap();
-app.listen(PORT, () => {
-    console.log(`> Ready on http://localhost:${PORT}`);
-    mongoSetup();
-});
+bootstrap();
