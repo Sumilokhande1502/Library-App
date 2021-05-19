@@ -1,10 +1,6 @@
 import { Express, Request, Response, NextFunction } from "express";
 import Book from "../schema/book.schema";
 
-async function hello(req: Request, res: Response, next: NextFunction) {
-  res.status(400).send("Unable to save into Database");
-  console.log("unable to send data");
-}
 
 //To insert book in DB
 async function addBook(req: Request, res: Response) {
@@ -93,7 +89,6 @@ async function updateBook(req: Request, res: Response) {
 }
 
 export default {
-  hello,
   addBook,
   getBook,
   removeBook,
