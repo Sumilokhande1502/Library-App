@@ -40,5 +40,13 @@
     "typescript": "^4.2.4"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sumilokhande1502/Library-Management-Backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sumilokhande1502/Library-Management-Backend/issues"
+  },
+  "homepage": "https://github.com/Sumilokhande1502/Library-Management-Backend#readme"
 }

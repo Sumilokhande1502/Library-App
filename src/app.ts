@@ -1,7 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import mongoose from 'mongoose';
 import df from "./default/default";
 import route from "./routes/router";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const uri = df.uri as string;
 
 const app = express();
@@ -24,18 +28,14 @@ function mongoSetup() {
 
 
   
-  const PORT = process.env.PORT || 3000;
 async function bootstrap() {
-  const PORT = process.env.PORT || 3000;
-  console.log(`Server is running at ${PORT}`);
+  const PORT = process.env.PORT;
+  const HOST = process.env.HOST;
+  console.log(`Server is running at http://${HOST}:${PORT}`);
   await app.listen(PORT);
+
+  mongoSetup()
 }
 
-// bootstrap();
+bootstrap();
 
-
-app.listen(PORT, () => {
-    console.log(`> Ready on http://localhost:${PORT}`)
-
-    mongoSetup();
-})
