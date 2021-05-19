@@ -5,12 +5,9 @@ import verifyToken from '../middleware/verifyToken';
 
 let router = express.Router();
 
-router.get('/', function(req, res){
-    res.sendFile(__dirname + '/public/app/views/index.html');
-  });
 
 //Library controller routes for books
-router.post('/addBook', controller.addBook);
+router.post('/addBook', controller.addBook)
 router.get('/getBook',controller.getBook)
 router.delete('/removeBook',controller.removeBook)
 router.put('/updateBook',controller.updateBook)
