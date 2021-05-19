@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Library mamgement backend application",
   "main": "index.js",
-  "engines":{
-    "node": "11.10.1",
+  "engines": {
+    "node": "12.13.0",
     "npm": "7.11.1"
   },
   "scripts": {
