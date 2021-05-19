@@ -36,8 +36,8 @@ function mongoSetup() {
         console.log("DB Connected!!!");
     });
 }
-app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/public/app/views/index.html');
+app.get('/', function (req, res) {
+    res.status(200).sendFile(__dirname + '/public/app/views/index.html');
 });
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {

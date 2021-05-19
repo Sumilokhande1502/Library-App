@@ -13,12 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const book_schema_1 = __importDefault(require("../schema/book.schema"));
-function hello(req, res, next) {
-    return __awaiter(this, void 0, void 0, function* () {
-        res.status(400).send("Unable to save into Database");
-        console.log("unable to send data");
-    });
-}
 //To insert book in DB
 function addBook(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -108,7 +102,6 @@ function updateBook(req, res) {
     });
 }
 exports.default = {
-    hello,
     addBook,
     getBook,
     removeBook,
