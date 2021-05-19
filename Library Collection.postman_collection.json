@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"abhijeet\",\r\n    \"username\": \"abhijeet1234\",\r\n    \"email\": \"abhijeet@gmail.com\",\r\n    \"password\": \"abhi@1234\",\r\n    \"role\": \"admin\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Dinesh\",\r\n    \"username\": \"dinesh1234\",\r\n    \"email\": \"dinesh@gmail.com\",\r\n    \"password\": \"dinesh@1234\",\r\n    \"role\": \"user\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,12 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/register",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/register",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"register"
@@ -41,17 +42,18 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTRkYjExMWExYTgyMDAxNWRjMzVjZiIsImlhdCI6MTYyMTQxNjcyMSwiZXhwIjoxNjIxNTAzMTIxfQ.aQGW9BhEwh0jdtxWkdZgkjS-y6Xlpvg0uQ2V1eFqJTo",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/user",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/user",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"user"
@@ -81,12 +83,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/login",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/login",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"login"
@@ -101,12 +104,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/logout",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/logout",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"logout"
@@ -146,12 +150,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/addBook",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/addBook",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"addBook"
@@ -179,12 +184,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/getBook",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/getBook",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"getBook"
@@ -203,7 +209,7 @@
 					"urlencoded": [
 						{
 							"key": "_id",
-							"value": "60a35abe7d467f330469b026",
+							"value": "60a49fca29a56c3cbcd51423",
 							"type": "text"
 						},
 						{
@@ -229,12 +235,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/updateBook",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/updateBook",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"updateBook"
@@ -253,18 +260,19 @@
 					"urlencoded": [
 						{
 							"key": "_id",
-							"value": "60a36cd6dd4f003bf0562af1",
+							"value": "60a49fca29a56c3cbcd51423",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/removeBook",
-					"protocol": "http",
+					"raw": "https://library-bck-app.herokuapp.com/api/removeBook",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"library-bck-app",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"removeBook"
