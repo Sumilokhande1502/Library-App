@@ -57,15 +57,18 @@ async function getAllBooks(req: Request, res: Response) {
 
 // To delete the book
 async function removeBook(req: Request, res: Response) {
-  console.log(req.body.id)
+  console.log(req.body.id);
+ 
+  await Book.findOne({_id:req.body._id}, (err: any, book: any) =>{
+    if(book){
+      book.delete();
 
-  await Book.deleteOne({_id:req.body._id}, () => {
-    if (true) {
-      res.status(200).send("Book Has Been Removed");
-    } else {
-      res.status(201).send("No Book Available With This ID");
+      res.status(400).send('Deleted successfully');
     }
-  });
+    else{
+      res.status(201).send('Book not found');
+    }
+  })
 }
 
 //To update the book

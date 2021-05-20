@@ -16,7 +16,7 @@ async function register(req: Request, res: Response, next: NextFunction) {
   )
     return res.send("Enter valid email and password");
 
-  const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+  const hashedPassword = bcrypt.hashSync(password, 8);
   const user = new User({
     name: req.body.name,
     username: req.body.username,
