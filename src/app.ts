@@ -36,7 +36,8 @@ async function bootstrap() {
   const PORT = process.env.PORT;
   const HOST = process.env.HOST;
   console.log(`Server is running at http://${HOST}:${PORT}`);
-  await app.listen(PORT);
+  
+  app.listen(PORT);
 
   mongoSetup()
 }
