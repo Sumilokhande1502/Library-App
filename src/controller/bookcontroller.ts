@@ -53,10 +53,11 @@ async function getAllBooks(req: Request, res: Response) {
 
 // To delete the book
 async function removeBook(req: Request, res: Response) {
+  
   await Book.findOne({ _id: req.body._id }, (err: any, book: any) => {
     if (book) {
       book.delete();
-
+      
       res.status(400).send("Deleted successfully");
     } else {
       res.status(201).send("Book not found");
