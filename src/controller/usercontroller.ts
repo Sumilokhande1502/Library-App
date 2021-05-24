@@ -47,10 +47,9 @@ async function verifyUser(req: Request, res: Response, next: NextFunction) {
     res.status(200).send(user);
   });
 }
-
 async function login(req: Request, res: Response, next: NextFunction) {
   User.findOne(
-    { email: req.body.email, username: req.body.username },
+    { $or: [{ email: req.body.email }, { username: req.body.username }] },
     function (err: any, user: any) {
       if (err) return res.status(500).send("Error on the server.");
       if (!user) return res.status(404).send("No user found.");
