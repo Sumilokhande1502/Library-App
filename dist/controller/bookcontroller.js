@@ -34,7 +34,7 @@ function addBook(req, res) {
             else {
                 const bookinfo = yield newBook.save();
                 console.info(bookinfo);
-                res.status(200).send({ Log: 'Book successfully added', bookinfo });
+                res.status(200).send({ Log: "Book successfully added", bookinfo });
             }
         }));
     });
@@ -45,7 +45,7 @@ function getBook(req, res) {
         let title = req.body.title;
         yield book_schema_1.default.findOne({ title: title }, (err, book) => {
             if (book) {
-                res.status(201).send({ Log: 'Book Found', Book_Info: book });
+                res.status(201).send({ Log: "Book Found", Book_Info: book });
             }
             else {
                 res.status(400).send("No Book Found");
@@ -69,13 +69,13 @@ function getAllBooks(req, res) {
 // To delete the book
 function removeBook(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log(req.body.id);
-        yield book_schema_1.default.deleteOne({ _id: req.body._id }, () => {
-            if (true) {
-                res.status(200).send("Book Has Been Removed");
+        yield book_schema_1.default.findOne({ _id: req.body._id }, (err, book) => {
+            if (book) {
+                book.delete();
+                res.status(400).send("Deleted successfully");
             }
             else {
-                res.status(201).send("No Book Available With This ID");
+                res.status(201).send("Book not found");
             }
         });
     });
@@ -96,7 +96,9 @@ function updateBook(req, res) {
                 if (err)
                     res.status(400).send("Book is Not Updated");
                 else
-                    res.status(200).send({ Log: 'Book updated successfully', Book_Info: book });
+                    res
+                        .status(200)
+                        .send({ Log: "Book updated successfully", Book_Info: book });
             });
         });
     });

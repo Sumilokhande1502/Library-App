@@ -20,15 +20,16 @@ function register(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         const email = req.body.email;
         const password = req.body.password;
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) === false || password.length <= 6)
-            return res.send('Enter valid email and password');
-        const hashedPassword = bcrypt_1.default.hashSync(req.body.password, 8);
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) === false ||
+            password.length <= 6)
+            return res.send("Enter valid email and password");
+        const hashedPassword = bcrypt_1.default.hashSync(password, 8);
         const user = new user_schema_1.default({
             name: req.body.name,
             username: req.body.username,
             email: req.body.email,
             password: hashedPassword,
-            role: req.body.role
+            role: req.body.role,
         });
         try {
             const token = jsonwebtoken_1.default.sign({ id: user._id }, default_1.default.privateKey, {
@@ -56,7 +57,7 @@ function verifyUser(req, res, next) {
 }
 function login(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
-        user_schema_1.default.findOne({ email: req.body.email, username: req.body.username }, function (err, user) {
+        user_schema_1.default.findOne({ $or: [{ email: req.body.email }, { username: req.body.username }] }, function (err, user) {
             if (err)
                 return res.status(500).send("Error on the server.");
             if (!user)

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const bookcontroller_1 = __importDefault(require("../controller/bookcontroller"));
 const usercontroller_1 = __importDefault(require("../controller/usercontroller"));
 const verifyToken_1 = __importDefault(require("../middleware/verifyToken"));
-let router = express_1.default.Router();
+const router = express_1.default.Router();
 //Library controller routes for books
 router.post('/addBook', bookcontroller_1.default.addBook);
 router.get('/getBook', bookcontroller_1.default.getBook);

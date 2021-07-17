@@ -1,5 +1,5 @@
 export default {
-  uri:'mongodb+srv://adminDB:passDB@cluster0.9xa4l.mongodb.net/libraryDatabase?retryWrites=true&w=majority',
+  uri: 'mongodb+srv://libraryDB:passDB@cluster0.yqeb0.mongodb.net/libraryDB?retryWrites=true&w=majority',
   privateKey: `-----BEGIN RSA PRIVATE KEY-----
   MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX
   01ajpafM7c7f5PO+wAcGYIxiTQsv9ml2/cgnB6MWG/YYKDCfbWLNbpvQxYlUCu0f
