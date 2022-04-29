@@ -19,7 +19,7 @@ const router_1 = __importDefault(require("./routes/router"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const uri = default_1.default.uri;
-const app = express_1.default();
+const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.static('/public'));
