@@ -1,6 +1,6 @@
-import * as mongoose from "mongoose";
-//import * as Inc from "mongoose-sequence";
-//const AutoIncrement = Inc(mongoose)
+import mongoose = require("mongoose");
+//import inc = require("mongoose-sequence");
+//let AutoIncrement: any = inc(schema: new mongoose.Schema<BookSchema>);
 //const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const BookSchema = new mongoose.Schema(
@@ -20,3 +20,4 @@ const BookSchema = new mongoose.Schema(
 const Book = mongoose.model("Book", BookSchema);
 Book.createIndexes();
 export default Book;
+

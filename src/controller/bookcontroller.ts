@@ -18,11 +18,11 @@ async function addBook(req: Request, res: Response) {
     },
     async (err: any, Book: any) => {
       if (Book) {
-        res.status(400).send({ err: "Book already exist", Book_Info: Book });
+        res.status(400).send({ msg: "Book already exist", Book_Info: Book });
       } else {
         const bookinfo = await newBook.save();
         console.info(bookinfo);
-        res.status(200).send({ Log: "Book successfully added", bookinfo });
+        res.status(200).send({ msg: "Book successfully added", bookinfo });
       }
     }
   );
